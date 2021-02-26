@@ -1,0 +1,62 @@
+.carousel-container {
+    width: 60%;
+    height: 600px;
+    margin: 3rem auto;
+}
+
+@media screen and (max-width: 1023px) {
+    .carousel-container {
+        width: 100%;
+    }
+}
+
+.slide img {
+    width: 20rem;
+    margin: 0 auto;
+}
+
+.slide {
+    transform: scale(0.7);
+    transition: transform 300ms;
+    opacity: .5;
+}
+
+.activeSlide {
+    transform: scale(1);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+
+    & svg {
+        font-size: 3rem;
+        transition: color 300ms;
+
+        &:hover {
+            color: #68edff;
+        }
+    }
+}
+
+.next {
+    right: 0%;
+    top: 50%;
+}
+
+.prev {
+    left: 0%;
+    top: 50%;
+}
+
+.zoom-button {
+    cursor: pointer;
+    transition: fill 300ms;
+
+    &:hover {
+        fill: #68edff;
+    }
+}

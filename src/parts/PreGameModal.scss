@@ -1,0 +1,24 @@
+.modal-card-anim {
+  animation: modal 500ms ease-in-out backwards, modal 500ms 2500ms ease-in-out forwards reverse;
+}
+
+.modal-card-head-anim {
+  animation: placeholder-animation 1ms 3000ms;
+}
+
+.modal-logo {
+  height: 10vmin;
+  margin: .7rem;
+  animation: modal-logo 2000ms 500ms ease-in-out;
+}
+
+.progress {
+  width: 80%;
+  height: 1rem;
+  &__bar {
+    height: 100%;
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: modal-progress 2000ms 500ms both;
+  }
+}

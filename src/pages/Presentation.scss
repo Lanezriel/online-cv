@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "QuoteFont";
+  src: local("QuoteFont"), url("../assets/fonts/Hatterline-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SubFont";
+  src: local("SubFont"), url("../assets/fonts/Warton-Regular.ttf") format("truetype");
+}
+
+.presentation-bg {
+  width: 100%;
+  background: url('../assets/images/zen_lake_bg.jpg') no-repeat center center fixed;
+
+  &__frame {
+    min-height: 300px;
+    padding: 3.5rem;
+    color: white;
+    font-weight: 500;
+    text-shadow: 
+      0.15em 0 3px black,
+      0 0.15em 3px black,
+      -0.15em 0 3px black,
+      0 -0.15em 3px black,
+      -0.15em -0.15em 3px black,
+      -0.15em 0.15em 3px black,
+      0.15em -0.15em 3px black,
+      0.15em 0.15em 3px black;
+
+    &__quote {
+      font-family: "QuoteFont";
+      font-size: 3.5rem;
+    }
+
+    &__sub {
+      // font-family: "SubFont";
+      font-size: 2rem;
+      font-weight: 500;
+      padding-left: 2rem;
+    }
+  }
+
+  &__section {
+    background: #eee;
+    box-shadow: black 0 0 15px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: .5rem;
+    }
+
+    &__subtitle {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    &__chip-content {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: .7rem;
+
+      & > * {
+        margin: .5rem;
+      }
+    }
+
+    &__text-content {
+      width: 60%;
+    }
+  }
+}
+
+.w-60-desktop {
+  width: 60%;
+}
+
+@media screen and (max-width: 1023px) {
+  .presentation-bg {
+    &__section {
+      &__text-content {
+        width: 100%;
+      }
+    }
+  }
+
+  .w-60-desktop {
+    width: 100%;
+  }
+}
