@@ -1,12 +1,3 @@
-@font-face {
-  font-family: "QuoteFont";
-  src: local("QuoteFont"), url("../assets/fonts/Hatterline-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "SubFont";
-  src: local("SubFont"), url("../assets/fonts/Warton-Regular.ttf") format("truetype");
-}
-
 .presentation-bg {
   width: 100%;
   background: url('../assets/images/zen_lake_bg.jpg') no-repeat center center fixed;
