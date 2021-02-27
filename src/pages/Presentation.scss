@@ -1,3 +1,5 @@
+@import "../assets/mixins";
+
 .presentation-bg {
   width: 100%;
   background: url('../assets/images/zen_lake_bg.jpg') no-repeat center center fixed;
@@ -17,9 +19,17 @@
       0.15em -0.15em 3px black,
       0.15em 0.15em 3px black;
 
+    @include mobile {
+      min-height: 200px;
+    }
+
     &__quote {
       font-family: "QuoteFont";
       font-size: 3.5rem;
+
+      @include mobile {
+        font-size: 2rem;
+      }
     }
 
     &__sub {
@@ -27,6 +37,10 @@
       font-size: 2rem;
       font-weight: 500;
       padding-left: 2rem;
+
+      @include mobile {
+        font-size: 1.25rem;
+      }
     }
   }
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Accordion, AccordionDetails, AccordionSummary } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { FullScreen } from 'react-full-screen';
 
@@ -10,6 +9,7 @@ import './Home.scss';
 import PresentationGame from '../components/PresentationGame';
 import PreGameModal from '../parts/PreGameModal';
 import HomeMessage from '../parts/HomeMessage';
+import ErrorMessageAccordion from '../parts/ErrorMessageAccordion';
 
 class Home extends Component {
   state = {
@@ -48,26 +48,16 @@ class Home extends Component {
           (this.state.startGame ? (
             <div className="flex-col-centered">
               { !this.detectWebGLContext() &&
-                <Accordion className="m-3">
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                    className="has-background-danger message-header"
-                  >
-                    <p>"WebGL not available" error</p>
-                  </AccordionSummary>
-                  <AccordionDetails className="has-background-danger-light">
-                    <div>
-                      <p>If you encounter the <strong><i>WebGL not available</i></strong> text, follow these instructions for Chrome :</p>
-                      <ul>
-                        <li className="message-body__li">In the address bar, type <strong>chrome://flags/</strong>, and <strong>press Enter</strong></li>
-                        <li className="message-body__li">Scroll to (or search for) <strong>Disable WebGL</strong> – Enabling this option prevents web applications from accessing the WebGL API, and <strong>click Enable</strong></li>
-                        <li className="message-body__li">Click <strong>Relaunch Now</strong>. Google Chrome will restart and the game should work</li>
-                      </ul>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
+                <ErrorMessageAccordion title={'"WebGL not available" error'} >
+                  <div>
+                    <p>If you encounter the <strong><i>WebGL not available</i></strong> text, follow these instructions for Chrome :</p>
+                    <ul>
+                      <li className="message-body__li">In the address bar, type <strong>chrome://flags/</strong>, and <strong>press Enter</strong></li>
+                      <li className="message-body__li">Scroll to (or search for) <strong>Disable WebGL</strong> – Enabling this option prevents web applications from accessing the WebGL API, and <strong>click Enable</strong></li>
+                      <li className="message-body__li">Click <strong>Relaunch Now</strong>. Google Chrome will restart and the game should work</li>
+                    </ul>
+                  </div>
+                </ErrorMessageAccordion>
               }
 
               <div className="columns mt-3 is-centered">

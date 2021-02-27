@@ -7,6 +7,7 @@ import firebase from '../services/Firestore';
 
 import './Experiences.scss';
 import ExperienceModal from '../parts/ExperienceModal';
+import { useWindowSize } from '../utils/UseWindowSize';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,24 +21,24 @@ const useStyles = makeStyles((theme) => ({
   },
   cardHeaderTitle: {
     fontSize: '1.5rem',
-    [theme.breakpoints.down(1024)]: {
-      fontSize: '1rem',
-    }
+    // [theme.breakpoints.down(1024)]: {
+    //   fontSize: '1rem',
+    // }
   },
   cardHeaderSub: {
     fontSize: '1rem',
-    [theme.breakpoints.down(1024)]: {
-      fontSize: '.6rem',
-    }
+    // [theme.breakpoints.down(1024)]: {
+    //   fontSize: '.6rem',
+    // }
   },
   cardContent: {
     fontSize: '1rem',
     display: 'flex',
     justifyContent: 'space-between',
-    [theme.breakpoints.down(1024)]: {
-      fontSize: '.8rem',
-    }
-  }
+    // [theme.breakpoints.down(1024)]: {
+    //   fontSize: '.8rem',
+    // }
+  },
 }));
 
 const Experiences = () => {
@@ -45,6 +46,7 @@ const Experiences = () => {
   const [cards, setCards] = React.useState(undefined);
   const [modalActive, setModalActive] = React.useState(false);
   const [modalData, setModalData] = React.useState({});
+  const windowSize = useWindowSize();
 
   const NextArrow = ({onClick}) => {
     return (
@@ -70,7 +72,7 @@ const Experiences = () => {
     infinite: true,
     lazyLoad: true,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: windowSize.width >= 1024 ? 3 : 1,
     centerMode: true,
     centerPadding: 0,
     nextArrow: <NextArrow />,
@@ -90,11 +92,10 @@ const Experiences = () => {
       })
   }, []);
 
-  const toggleModal = (value) => {
-    // console.log('let us get more info about : ' + value);
+  const toggleModal = (value, data) => {
     if(cardIndex === value) {
-      // setModalActive(!modalActive);
       setModalActive(true);
+      setModalData(data);
     } else {
       setModalActive(false);
       setModalData({});
@@ -103,12 +104,12 @@ const Experiences = () => {
 
   return(
     <div className="carousel-container">
-      <ExperienceModal active={modalActive} toggleModal={toggleModal} />
+      <ExperienceModal active={modalActive} toggleModal={toggleModal} data={modalData} />
       { cards &&
         <Slider {...settings}>
           {cards.map((card, index) => {
             return (
-              <div key={index} className={`slide ${index === cardIndex ? "activeSlide" : (index < cardIndex ? "prevSlide" : "nextSlide")}`} onClick={() => toggleModal(index)}>
+              <div key={index} className={`slide ${index === cardIndex ? "activeSlide" : (index < cardIndex ? "prevSlide" : "nextSlide")}`} onClick={() => toggleModal(index, card)}>
                 <Card className={classes.root}>
                   <CardHeader
                     classes={{

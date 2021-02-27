@@ -1,0 +1,58 @@
+.modal-card-body {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+
+  &:checked {
+    + .acc-title::before {
+      transform: rotate(90deg);
+    }
+
+    ~ .acc-content {
+      max-height: 100vh;
+      padding: 0 2.5rem 1rem 2.5rem;
+    }
+  }
+}
+
+.acc {
+  width: 100%;
+  margin: .5rem 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &-title {
+    display: flex;
+    margin-bottom: .5rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    &::before {
+      content: "\276F";
+      width: 1.5rem;
+      height: 1.5rem;
+      text-align: center;
+      transition: all 350ms 50ms ease-in-out;
+    }
+  }
+
+  &-content {
+    max-height: 0;
+    font-size: .9rem;
+    padding: 0 2.5rem;
+    transition: all 350ms ease-in-out;
+
+    & > ul > li {
+      list-style: outside;
+    }
+  }
+}

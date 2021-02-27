@@ -4,12 +4,6 @@
     margin: 3rem auto;
 }
 
-@media screen and (max-width: 1023px) {
-    .carousel-container {
-        width: 100%;
-    }
-}
-
 .slide img {
     width: 20rem;
     margin: 0 auto;
@@ -22,9 +16,13 @@
 }
 
 .activeSlide {
-    transform: scale(1);
+    transform: scale(0.9);
     opacity: 1;
     cursor: pointer;
+
+    &:hover {
+        transform: scale(0.95);
+    }
 }
 
 .arrow {
@@ -58,5 +56,24 @@
 
     &:hover {
         fill: #68edff;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .carousel-container {
+        width: 100%;
+    }
+
+    .slide {
+        transform: scale(0.7);
+    }
+
+    .activeSlide:hover {
+        transform: scale(0.75);
+    }
+
+    .slick-current > div {
+        display: flex;
+        justify-content: center;
     }
 }

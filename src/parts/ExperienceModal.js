@@ -1,22 +1,39 @@
 import React, { Component } from 'react';
-import Experiences from '../pages/Experiences';
 
 import './ExperienceModal.scss';
 
 class ExperienceModal extends Component {
+
   render() {
-    const { active, toggleModal } = this.props;
+    const { active, toggleModal, data } = this.props;
+    // console.log(data);
 
     return (
       <div className={`modal ${active && "is-active"}`}>
         <div className="modal-background" onClick={() => toggleModal()}></div>
         <div className="modal-card">
           <header className="modal-card-head">
-            <p className="modal-card-title">To be implemented</p>
+            <p className="modal-card-title">{data.title}</p>
             <button className="delete" aria-label="close" onClick={() => toggleModal()}></button>
           </header>
           <section className="modal-card-body">
-            <p>Also to be implemented</p>
+            { data.roles &&
+              data.roles.map((role, index) => {
+                return(
+                  <div key={index} className="acc">
+                    <input type="checkbox" id={`acc-${index}`} />
+                    <label className="acc-title" htmlFor={`acc-${index}`}>{role.role}</label>
+                    <div className="acc-content">
+                      <ul>
+                        {role.activities.map((activity, index) => {
+                          return <li key={index}>{activity}</li>
+                        })}
+                      </ul>
+                    </div>
+                  </div>
+                );
+              })
+            }
           </section>
         </div>
       </div>
