@@ -1,12 +1,12 @@
-@import "./variables";
-@import "./keyframes";
-@import "./mixins";
-@import "./fonts";
-
 @import "~bulma/bulma.sass";
 
 @import "~slick-carousel/slick/slick.css"; 
 @import "~slick-carousel/slick/slick-theme.css";
+
+@import "./variables";
+@import "./keyframes";
+@import "./mixins";
+@import "./fonts";
 
 // BASE CSS
 
@@ -56,5 +56,10 @@ code {
 
 .main-container {
   width: 100%;
-  margin-top: 0;
+}
+
+.general-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
 }

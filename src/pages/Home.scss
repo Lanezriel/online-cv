@@ -4,16 +4,6 @@ $game-container-ratio: 9/16;
 $game-container-padding-top: calc((#{$game-container-ratio} * (#{$game-container-width}/100)) * 100);
 $game-container-padding-top-mobile: calc((#{$game-container-ratio} * (#{$game-container-width-mobile}/100)) * 100);
 
-.main-container {
-  width: 100%;
-}
-
-.general-title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 900;
-}
-
 .flex-col-centered {
   width: 100%;
   display: flex;
