@@ -2,6 +2,16 @@
 
 `This project is currently not finished.`
 
+
+
+Backend: `None`
+
+Frontend: `ReactJS v17.0.1`, `Bulma v0.9.2`, `Material-ui v4.11.3` (waiting before upgrading to v5)
+
+Database: `Cloud Firestore`
+
+## General informations
+
 It needs much refactoring and parts of it are not even created yet.
 The purpose of this projet is, of course, to show you my skills and knowledge (especially about Web development at first).
 I guess this project will hardly have a good file architecture because this is kind of a playground.
