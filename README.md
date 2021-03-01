@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# My online CV / Folio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`This project is currently not finished.`
 
-## Available Scripts
+It needs much refactoring and parts of it are not even created yet.
+The purpose of this projet is, of course, to show you my skills and knowledge (especially about Web development at first).
+I guess this project will hardly have a good file architecture because this is kind of a playground.
 
-In the project directory, you can run:
+I'm still trying to keep a basic file architecture.
 
-### `npm start`
+You will see CSS-in-JS as much as SCSS (again, playground and some things are not possible or easy enough in the other way in my understanding for now).
+Also, as Material-ui v5 will change their mindset about CSS-in-JS and use Styled Component (emotion and I not remember what) instead of JSS, I'm still waiting further informations whether they are willing to keep some sort of compatibility with JSS or not. In fact, their documentation is still incomplete for v5 and no clear explanation has been done at this time about how their new choice will work exactly (of course, inside Material-ui itself; I could also take any other CSS-in-JS library by myself but as I installed Material-ui, let's continue like that).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I used `Bulma` CSS framework (which is responsive and minimalist).
+I might change that in the future but I didn't like some of Material-ui stuffs (and some are missing as they seem to be focused `mobile first` which is completely understandable at these times).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I decided not to create any Backend for my project (as it is not meant to have much interactions with stored data or any other sources).
+I just used a cloud database : Google's `Cloud Firestore` which is a NoSQL database.
+Some data haven't been integrated in that database yet. I chose to create the new data in the database first and migrate the other later (with the refactoring).
 
-### `npm test`
+## The game ?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Yes, I included a mini 2D game inside the home page.
+It will take some time to go further but you have a bit of preview of what I'd like to end up with.
+It is supposed to tell `my story` (like a small action-RPG adventure).
 
-### `npm run build`
+This game is in creation with `Godot Engine v3.2.3`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I didn't have time to add mobile touch controls yet but the `Options page` has been pre-created in that purpose.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Unfortunately, the way I integrated this game inside my project is not the best.
+I used an `iframe` which is kind of a really old stuff.
+I haven't found yet (and stopped looking) how to embed `Web Assembly (WASM)` in my project, using `Godot Engine` required scripts for launch, and everything needed to run the game in a web browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Guess it would be easier for those kind of stuff to just be created for specific OS like Windows, MacOS, Linux, Android or iOS.
+(Which can be done really easy with Godot Engine, apparently).
