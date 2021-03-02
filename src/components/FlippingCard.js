@@ -16,10 +16,10 @@ function FlippingCard(props) {
       onMouseLeave={flip}
     >
       <div className="card-front">
-        TEST
+        {props.children[0]}
       </div>
       <div className="card-back">
-        BACK
+        {props.children[1]}
       </div>
     </div>
   );
