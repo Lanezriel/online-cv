@@ -1,5 +1,8 @@
 import { Chip } from '@material-ui/core';
 import React, { Component } from 'react';
+import ChipGroup from '../components/ChipGroup';
+import PresentationFrame from '../parts/PresentationFrame';
+import PresentationSection from '../parts/PresentationSection';
 
 import './Presentation.scss';
 
@@ -65,58 +68,40 @@ class Presentation extends Component {
 
     return(
       <div className="presentation-bg">
-        <div className="presentation-bg__frame">
-          <p className="presentation-bg__frame__quote">Everything can be learned</p>
-          <p className="presentation-bg__frame__sub">If there is a will,<br/>there is always a way</p>
-        </div>
-        <div className="presentation-bg__section">
-          <h1 className="presentation-bg__section__title">Main informations</h1>
+        <PresentationFrame quote={'Everything can be learned'} sub={['If there is a will,', 'there is always a way']} />
+
+        <PresentationSection title={'Main informations'}>
           <div className="columns is-multiline w-60-desktop">
             <div className="column is-4">
               <h2 className="presentation-bg__section__subtitle">General</h2>
-              <div className="presentation-bg__section__chip-content">
-                {generals.map((item, index) => (
-                  <Chip key={index} label={item} className="has-text-weight-medium has-background-primary" />
-                ))}
-              </div>
+              <ChipGroup chipList={generals} bgColor={'hsl(171, 100%, 41%)'} />
             </div>
+
             <div className="column is-3">
               <h2 className="presentation-bg__section__subtitle">Languages</h2>
-              <div className="presentation-bg__section__chip-content">
-                {languages.map((item, index) => (
-                  <Chip key={index} label={item} className="has-text-weight-medium has-background-warning" />
-                ))}
-              </div>
+              <ChipGroup chipList={languages} bgColor={'hsl(48, 100%, 67%)'} />
             </div>
-            <div className="column is-5">
+
+            <div className="column is-4">
               <h2 className="presentation-bg__section__subtitle">Diplomas &amp; Certifications</h2>
-              <div className="presentation-bg__section__chip-content">
-                {papers.map((item, index) => (
-                  <Chip key={index} label={item} className="has-text-weight-medium has-background-danger" />
-                ))}
-              </div>
+              <ChipGroup chipList={papers} bgColor={'hsl(348, 100%, 61%)'} />
             </div>
+
             <div className="column is-6">
               <h2 className="presentation-bg__section__subtitle">Skills</h2>
-              <div className="presentation-bg__section__chip-content">
-                {skills.map((item, index) => (
-                  <Chip key={index} label={item} className="has-text-weight-medium has-background-success" />
-                ))}
-              </div>
+              <ChipGroup chipList={skills} bgColor={'hsl(141, 71%, 48%)'} />
             </div>
+            
             <div className="column is-6">
               <h2 className="presentation-bg__section__subtitle">Knowledges</h2>
-              <div className="presentation-bg__section__chip-content">
-                {knowledges.map((item, index) => (
-                  <Chip key={index} label={item} className="has-text-weight-medium has-background-grey-light" />
-                ))}
-              </div>
+              <ChipGroup chipList={knowledges} bgColor={'hsl(0, 0%, 71%)'} />
             </div>
           </div>
-        </div>
-        <div className="presentation-bg__frame"></div>
-        <div className="presentation-bg__section">
-          <h1 className="presentation-bg__section__title">Introduction</h1>
+        </PresentationSection>
+
+        <PresentationFrame />
+
+        <PresentationSection title={'Introduction'}>
           <div className="presentation-bg__section__text-content">
             <p>Haec igitur Epicuri non probo, inquam. De cetero vellem equidem aut ipse doctrinis fuisset instructior est enim,
               quod tibi ita videri necesse est, non satis politus iis artibus, quas qui tenent, eruditi appellantur aut ne deterruisset alios a studiis.
@@ -140,8 +125,9 @@ class Presentation extends Component {
               Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator,
               cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.</p>
           </div>
-        </div>
-        <div className="presentation-bg__frame"></div>
+        </PresentationSection>
+
+        <PresentationFrame />
       </div>
     )
   }
