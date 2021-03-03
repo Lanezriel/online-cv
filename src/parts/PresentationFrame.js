@@ -6,14 +6,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '3.5rem',
     color: 'white',
     fontWeight: '500',
-    textShadow: '0.15em 0 3px black,\
-      0 0.15em 3px black,\
-      -0.15em 0 3px black,\
-      0 -0.15em 3px black,\
-      -0.15em -0.15em 3px black,\
-      -0.15em 0.15em 3px black,\
-      0.15em -0.15em 3px black,\
-      0.15em 0.15em 3px black',
+    textShadow: '0.15em 0 3px black, 0 0.15em 3px black, -0.15em 0 3px black, 0 -0.15em 3px black, -0.15em -0.15em 3px black, -0.15em 0.15em 3px black, 0.15em -0.15em 3px black, 0.15em 0.15em 3px black',
     [theme.breakpoints.down(1024)]: {
       minHeight: '200px',
     },

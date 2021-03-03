@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Presentation from './pages/Presentation';
 import Experiences from './pages/Experiences';
 import Achievements from './pages/Achievements';
+import Contact from './pages/Contact';
 
 class App extends Component {
   state = {
@@ -19,7 +20,7 @@ class App extends Component {
       {text: "Presentation", component: Presentation, link: "/presentation"},
       {text: "Experiences", component: Experiences, link: "/experiences"},
       {text: "Achievements", component: Achievements, link: "/achievements"},
-      {text: "Contact", component: NotFound, link: "/contact"},
+      {text: "Contact", component: Contact, link: "/contact"},
     ],
   }
 

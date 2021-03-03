@@ -1,4 +1,3 @@
-import { Chip } from '@material-ui/core';
 import React, { Component } from 'react';
 import ChipGroup from '../components/ChipGroup';
 import PresentationFrame from '../parts/PresentationFrame';
@@ -91,7 +90,7 @@ class Presentation extends Component {
               <h2 className="presentation-bg__section__subtitle">Skills</h2>
               <ChipGroup chipList={skills} bgColor={'hsl(141, 71%, 48%)'} />
             </div>
-            
+
             <div className="column is-6">
               <h2 className="presentation-bg__section__subtitle">Knowledges</h2>
               <ChipGroup chipList={knowledges} bgColor={'hsl(0, 0%, 71%)'} />
