@@ -6,6 +6,11 @@ import ninja from "../assets/images/ninja.png";
 import battleMap from "../assets/images/battle_map.jpg";
 
 const useStyles = makeStyles(theme => ({
+  title: {
+    textAlign: 'center',
+    fontSize: '1.75rem',
+    fontWeight: '700',
+  },
   map: {
     width: '420px',
     height: '800px',
@@ -54,7 +59,7 @@ const useStyles = makeStyles(theme => ({
 
 function ContactMiniGame(props) {
   const classes = useStyles();
-  
+
   const [found, setFound] = useState(false);
   const [dragAxis, setDragAxis] = useState('both');
   const [defaultPosition, setDefaultPosition] = useState({x: 187, y: 109});
@@ -124,7 +129,7 @@ function ContactMiniGame(props) {
 
   return(
     <>
-      <h2 className="general-sub-title">Want to contact me? Find the "contact form" by dragging the Ninja on the map!</h2>
+      <h2 className={classes.title}>Want to contact me? Find the "contact form" by dragging the Ninja on the map!</h2>
       <div className={classes.map}>
         <Draggable
           nodeRef={nodeRef}

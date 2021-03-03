@@ -21,7 +21,7 @@ class ExperienceModal extends Component {
               data.roles.map((role, index) => {
                 return(
                   <div key={index} className="acc">
-                    <input type="checkbox" id={`acc-${index}`} />
+                    <input type="checkbox" id={`acc-${index}`} className="invisible-input" />
                     <label className="acc-title" htmlFor={`acc-${index}`}>{role.role}</label>
                     <div className="acc-content">
                       <ul>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ContactForm from "../parts/ContactForm";
 
 import ContactMiniGame from "../parts/ContactMiniGame";
 
@@ -13,12 +14,12 @@ function Contact(props) {
     <div className="main-container mt-3">
       <h1 className="general-title">Contact</h1>
 
-      { !formVisible &&
+      {!formVisible &&
         <ContactMiniGame handleFoundClick={handleFoundClick} />
       }
 
       {formVisible &&
-        <h2 className="general-sub-title">Fantastic! You found the form!</h2>
+        <ContactForm />
       }
     </div>
   );
