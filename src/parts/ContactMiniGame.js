@@ -11,6 +11,18 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1.75rem',
     fontWeight: '700',
   },
+  subWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '1rem',
+  },
+  subTitle: {
+    textAlign: 'center',
+    fontSize: '1rem',
+    fontWeight: '500',
+    marginRight: '1rem',
+  },
   map: {
     width: '420px',
     height: '800px',
@@ -34,7 +46,6 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-around',
     position: 'relative',
     top: '-110px',
-    // left: '-30px',
     background: 'rgba(230, 230, 230, .85)',
     boxShadow: '0 0 5px black',
     padding: '.3rem .7rem',
@@ -42,14 +53,13 @@ const useStyles = makeStyles(theme => ({
     fontWeight: '600',
     borderRadius: '25px',
   },
-  bubbleButton: {
+  button: {
     display: 'block',
     cursor: 'pointer',
     border: 'none',
     borderRadius: '15px',
     backgroundColor: '#15dea5cc',
-    padding: '.5rem',
-    margin: '0 auto',
+    padding: '.5rem 1rem',
     fontWeight: '600',
     '&:hover': {
       backgroundColor: '#0ad49acc',
@@ -130,6 +140,7 @@ function ContactMiniGame(props) {
   return(
     <>
       <h2 className={classes.title}>Want to contact me? Find the "contact form" by dragging the Ninja on the map!</h2>
+
       <div className={classes.map}>
         <Draggable
           nodeRef={nodeRef}
@@ -144,7 +155,7 @@ function ContactMiniGame(props) {
                 <p>{bubbleText}</p>
                 {found &&
                   <button
-                    className={classes.bubbleButton}
+                    className={classes.button}
                     onClick={props.handleFoundClick}
                     onTouchStart={props.handleFoundClick} // Because, strangely, onClick wouldn't fire on mobile devices
                   >
@@ -155,6 +166,17 @@ function ContactMiniGame(props) {
             }
           </div>
         </Draggable>
+      </div>
+
+      <div className={classes.subWrapper}>
+        <p className={classes.subTitle}>No time for this ?</p>
+        <button
+          className={classes.button}
+          onClick={props.handleFoundClick}
+          onTouchStart={props.handleFoundClick}
+        >
+          Directly go to form
+        </button>
       </div>
     </>
   );
