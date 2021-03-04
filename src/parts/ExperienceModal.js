@@ -3,10 +3,8 @@ import React, { Component } from 'react';
 import './ExperienceModal.scss';
 
 class ExperienceModal extends Component {
-
   render() {
-    const { active, toggleModal, data } = this.props;
-    // console.log(data);
+    const { active, toggleModal, data, checkedList, handleCheckboxChange } = this.props;
 
     return (
       <div className={`modal ${active && "is-active"}`}>
@@ -21,7 +19,7 @@ class ExperienceModal extends Component {
               data.roles.map((role, index) => {
                 return(
                   <div key={index} className="acc">
-                    <input type="checkbox" id={`acc-${index}`} className="invisible-input" />
+                    <input type="checkbox" checked={checkedList[index]} id={`acc-${index}`} className="invisible-input" onChange={() => handleCheckboxChange(index)} />
                     <label className="acc-title" htmlFor={`acc-${index}`}>{role.role}</label>
                     <div className="acc-content">
                       <ul>

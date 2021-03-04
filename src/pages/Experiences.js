@@ -15,9 +15,11 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%',
-    backgroundSize: 'contain',
+    '&.MuiCardMedia-root': {
+      height: 0,
+      paddingTop: '56.25%',
+      backgroundSize: 'contain',
+    }
   },
   cardHeaderTitle: {
     fontSize: '1.5rem',
@@ -46,6 +48,7 @@ const Experiences = () => {
   const [cards, setCards] = React.useState(undefined);
   const [modalActive, setModalActive] = React.useState(false);
   const [modalData, setModalData] = React.useState({});
+  const [checkedList, setCheckedList] = React.useState([]);
   const windowSize = useWindowSize();
 
   const NextArrow = ({onClick}) => {
@@ -96,15 +99,30 @@ const Experiences = () => {
     if(cardIndex === value) {
       setModalActive(true);
       setModalData(data);
+
+      var list = [];
+      data.roles.forEach((elem) => {
+        list.push(true);
+      });
+      setCheckedList(list);
     } else {
       setModalActive(false);
       setModalData({});
+      setCheckedList([]);
     }
+  }
+
+  const updateCheckedList = (index) => {
+    // Creating a copy of the state tu change only one item inside the array
+    var list = [...checkedList];
+    list[index] = !list[index];
+
+    setCheckedList(list);
   }
 
   return(
     <div className="carousel-container">
-      <ExperienceModal active={modalActive} toggleModal={toggleModal} data={modalData} />
+      <ExperienceModal active={modalActive} toggleModal={toggleModal} data={modalData} checkedList={checkedList} handleCheckboxChange={updateCheckedList} />
       { cards &&
         <Slider {...settings}>
           {cards.map((card, index) => {
