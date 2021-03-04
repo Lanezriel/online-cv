@@ -9,8 +9,10 @@ const useStyles = makeStyles((theme) => ({
   },
   chip: {
     fontWeight: '500',
-    backgroundColor: props => props.bgColor,
     margin: '.5rem',
+    '&.MuiChip-root': {
+      backgroundColor: (props) => props.bgColor,
+    },
   },
 }));
 

@@ -1,100 +1,42 @@
 import React, { Component } from 'react';
+
+import firebase from '../services/Firestore';
+
 import ChipGroup from '../components/ChipGroup';
 import PresentationFrame from '../parts/PresentationFrame';
 import PresentationSection from '../parts/PresentationSection';
 
 import './Presentation.scss';
+import PresentationChipSection from '../parts/PresentationChipSection';
 
 class Presentation extends Component {
   state = {
-    generals: [
-      'Belgian',
-      '1989',
-      'Married',
-      'Father',
-      'Driving License (on progress)',
-    ],
-    languages: ['French', 'English', 'Japanese'],
-    papers: [
-      'Scrum Master Accredited Certification',
-      'ISTQB Foundation',
-      'Multilingual Digital Treatment - Japanese License',
-    ],
-    skills: [
-      'Python',
-      'Django',
-      'Django REST Framework',
-      'Django Channels',
-      'Pandas',
-      'xlWings',
-      'Angular 2+',
-      'Angular Material',
-      'RxJS Websocket',
-      'ReactJS',
-      'TypeScript',
-      'JavaScript',
-      'jQuery',
-      'VBA',
-      'VBScript',
-      'HTML 5',
-      'CSS 3',
-      'SASS',
-      'C',
-      'C++',
-      'Selenium',
-    ],
-    knowledges: [
-      'Tools development',
-      'Automation',
-      'Web development',
-      'Software testing',
-      'Communication',
-      'VS Code',
-      'Oracle',
-      'MySQL',
-      'SQLite',
-      'Quality Center',
-      'Unified Functional Testing',
-      'Jenkins',
-      'Android Studio',
-      'Eclipse',
-      'Network',
-    ],
+    infos: [],
+  }
+
+  componentDidMount = () => {
+    const db = firebase.firestore();
+
+    db.collection("presentation").get()
+      .then((resp) => {
+        resp.docs.forEach(doc => {
+          this.setState({infos: doc.data().infos});
+        })
+      });
   }
 
   render() {
-    const { generals, languages, papers, skills, knowledges } = this.state;
+    const { infos } = this.state;
 
     return(
       <div className="presentation-bg">
         <PresentationFrame quote={'Everything can be learned'} sub={['If there is a will,', 'there is always a way']} />
 
         <PresentationSection title={'Main informations'}>
-          <div className="columns is-multiline w-60-desktop">
-            <div className="column is-4">
-              <h2 className="presentation-bg__section__subtitle">General</h2>
-              <ChipGroup chipList={generals} bgColor={'hsl(171, 100%, 41%)'} />
-            </div>
-
-            <div className="column is-3">
-              <h2 className="presentation-bg__section__subtitle">Languages</h2>
-              <ChipGroup chipList={languages} bgColor={'hsl(48, 100%, 67%)'} />
-            </div>
-
-            <div className="column is-4">
-              <h2 className="presentation-bg__section__subtitle">Diplomas &amp; Certifications</h2>
-              <ChipGroup chipList={papers} bgColor={'hsl(348, 100%, 61%)'} />
-            </div>
-
-            <div className="column is-6">
-              <h2 className="presentation-bg__section__subtitle">Skills</h2>
-              <ChipGroup chipList={skills} bgColor={'hsl(141, 71%, 48%)'} />
-            </div>
-
-            <div className="column is-6">
-              <h2 className="presentation-bg__section__subtitle">Knowledges</h2>
-              <ChipGroup chipList={knowledges} bgColor={'hsl(0, 0%, 71%)'} />
-            </div>
+          <div className="is-flex is-flex-wrap-wrap is-justify-content-center w-60-desktop">
+            {infos.map((info, index) => {
+              return <PresentationChipSection info={info} />
+            })}
           </div>
         </PresentationSection>
 
