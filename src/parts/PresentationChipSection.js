@@ -2,14 +2,16 @@ import { makeStyles } from "@material-ui/core";
 import ChipGroup from "../components/ChipGroup";
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  root: props => ({
     padding: '1rem',
     display: 'flex',
     flexDirection: 'column',
-    // justifyContent: 'center',
     alignItems: 'center',
-    width: (props) => props.info.width,
-  },
+    width: props.info.width,
+    [theme.breakpoints.down(1024)]: {
+      width: '100%',
+    },
+  }),
   title: {
     textAlign: 'center',
     fontSize: '1.5rem',
