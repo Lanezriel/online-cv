@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '1rem',
+    margin: '1rem 0 2rem 0',
   },
   subTitle: {
     textAlign: 'center',
@@ -64,6 +64,11 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       backgroundColor: '#0ad49acc',
     },
+  },
+  thanks: {
+    padding: '1rem',
+    fontSize: '.8rem',
+    textAlign: 'center',
   },
 }));
 
@@ -166,6 +171,14 @@ function ContactMiniGame(props) {
             }
           </div>
         </Draggable>
+      </div>
+
+      <div className={classes.thanks}>
+        <p>
+          Special thanks to <a href="https://www.patreon.com/galaxycompass" rel="noreferrer" target="_blank">
+            Mutenn
+          </a> (who became "Galaxy Compass") for the "Free Battlemap: Nature god temple" released on March 13th 2020.
+        </p>
       </div>
 
       <div className={classes.subWrapper}>

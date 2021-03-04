@@ -11,7 +11,7 @@ import PresentationChipSection from '../parts/PresentationChipSection';
 class Presentation extends Component {
   state = {
     infos: [],
-    introduction: [],
+    intro: [],
   }
 
   componentDidMount = () => {
@@ -21,13 +21,13 @@ class Presentation extends Component {
       .then((resp) => {
         resp.docs.forEach(doc => {
           this.setState({infos: doc.data().infos});
-          this.setState({introduction: doc.data().introduction});
+          this.setState({intro: doc.data().intro});
         })
       });
   }
 
   render() {
-    const { infos, introduction } = this.state;
+    const { infos, intro } = this.state;
 
     return(
       <div className="presentation-bg">
@@ -44,13 +44,18 @@ class Presentation extends Component {
         <PresentationFrame />
 
         <PresentationSection title={'Introduction'}>
-          <div className="presentation-bg__section__text-content">
-            {introduction.map((paragraph, index) => {
-              return(
-                <p key={index}>{paragraph}</p>
-              )
-            })}
-          </div>
+          {intro.map((item, index) => {
+            return(
+              <div key={index} className="presentation-bg__section__text-content">
+                <h3>{item.title}</h3>
+                {item.content.map((elem, index) => {
+                  return(
+                    <p key={index}>{elem}</p>
+                  )
+                })}
+              </div>
+            )
+          })}
         </PresentationSection>
 
         <PresentationFrame />

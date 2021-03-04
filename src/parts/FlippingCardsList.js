@@ -61,7 +61,7 @@ function FlippingCardsList(props) {
               {card.info &&
                 <p>
                   {card.info.includes('$$LINK$$') ?
-                    <a href={card.info.split('$$LINK$$')[1]} target="_blank">{card.info.split('$$LINK$$')[0]}</a> :
+                    <a href={card.info.split('$$LINK$$')[1]} rel="noreferrer" target="_blank">{card.info.split('$$LINK$$')[0]}</a> :
                     card.info}
                 </p>
               }
